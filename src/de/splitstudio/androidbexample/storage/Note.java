@@ -5,13 +5,13 @@ import de.splitstudio.androidb.annotation.Column;
 
 public class Note implements Table {
 
-	@Column(autoIncrement=true, primaryKey=true)
-	public long id;
+	@Column(autoIncrement = true, primaryKey = true)
+	public Long id;
 
 	@Column
 	public String text;
 
-	@Column 
+	@Column
 	public String name;
 
 	public long getId() {
@@ -32,6 +32,11 @@ public class Note implements Table {
 
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	@Override
+	public boolean isNew() {
+		return id == null;
 	}
 
 }
