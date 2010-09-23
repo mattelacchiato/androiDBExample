@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">androiDBExample</string>
     <string name="no_notes">Dude! No notes, yet.</string>
+    <string name="menu_delete">Delete</string>
 </resources>

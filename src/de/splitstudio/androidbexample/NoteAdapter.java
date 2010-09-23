@@ -8,21 +8,17 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class TableAdapter extends CursorAdapter {
+public class NoteAdapter extends CursorAdapter {
 
-	public TableAdapter(final Context context) {
+	public NoteAdapter(final Context context) {
 		super(context, new Note(context).all());
 	}
 
 	@Override
 	public void bindView(final View view, final Context context, final Cursor cursor) {
 		int nameCol = cursor.getColumnIndex("name");
-
 		String name = cursor.getString(nameCol);
 
-		/**
-		 * Next set the name of the entry.
-		 */
 		TextView name_text = (TextView) view.findViewById(R.id.name);
 		if (name_text != null) {
 			name_text.setText(name);

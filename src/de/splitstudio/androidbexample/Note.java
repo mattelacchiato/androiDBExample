@@ -12,6 +12,10 @@ public class Note extends Table {
 		super(context);
 	}
 
+	Note(final Context context, final Long id) {
+		super(context, id);
+	}
+
 	@Column
 	private String text;
 
