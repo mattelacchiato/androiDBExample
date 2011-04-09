@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class NoteAdapter extends CursorAdapter {
 
 	public NoteAdapter(final Context context) {
-		super(context, new Note(context).all());
+		super(context, new Note().all());
 	}
 
 	@Override

@@ -1,17 +1,16 @@
 package de.splitstudio.androidbexample;
 
-import android.content.Context;
 import de.splitstudio.androidb.Table;
 import de.splitstudio.androidb.annotation.Column;
 
 public class Note extends Table {
 
-	Note(final Context context) {
-		super(context);
+	Note() {
+		this(null);
 	}
 
-	Note(final Context context, final Long id) {
-		super(context, id);
+	Note(final Long id) {
+		super(id);
 	}
 
 	@Column

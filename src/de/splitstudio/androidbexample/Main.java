@@ -3,12 +3,12 @@ package de.splitstudio.androidbexample;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class Main extends ListActivity {
 	private static final int DELETE_ID = 0;
@@ -19,7 +19,7 @@ public class Main extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		Note note = new Note(this);
+		Note note = new Note();
 		note.setName("foo");
 		note.setText("bar");
 		note.save();
@@ -31,7 +31,7 @@ public class Main extends ListActivity {
 	@Override
 	protected void onListItemClick(final ListView l, final View v, final int position, final long id) {
 		super.onListItemClick(l, v, position, id);
-		Note note = new Note(this, id);
+		Note note = new Note(id);
 		if (note.find()) {
 			Toast.makeText(this, note.getText(), Toast.LENGTH_LONG).show();
 		}
@@ -48,7 +48,7 @@ public class Main extends ListActivity {
 		switch (item.getItemId()) {
 		case DELETE_ID:
 			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-			new Note(this, info.id).delete();
+			new Note(info.id).delete();
 			fillList();
 			return true;
 		}
