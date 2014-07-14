@@ -13,7 +13,6 @@ import android.widget.Toast;
 public class Main extends ListActivity {
 	private static final int DELETE_ID = 0;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,7 +37,8 @@ public class Main extends ListActivity {
 	}
 
 	@Override
-	public void onCreateContextMenu(final ContextMenu menu, final View v, final ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(final ContextMenu menu, final View v,
+			final ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.add(0, DELETE_ID, 0, R.string.menu_delete);
 	}
@@ -56,8 +56,7 @@ public class Main extends ListActivity {
 	}
 
 	private void fillList() {
-		NoteAdapter tableAdapter = new NoteAdapter(this);
-		setListAdapter(tableAdapter);
+		setListAdapter(new NoteAdapter(this));
 	}
 
 }
